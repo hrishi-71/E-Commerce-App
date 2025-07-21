@@ -1,0 +1,40 @@
+#navi{
+    z-index: 9999;
+    position: fixed; 
+    top: 0%;
+    width: 100%;
+}
+.brand{
+    display: block;
+    width: 100px;
+    color: white;
+}
+.navMenu{
+    display: block;
+    text-align: left;
+}
+.user{
+    display: block;
+    color: white;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.userIcon{
+    font-size: 30px;
+}
+.logs{
+    position: absolute;
+    top:23%;
+    right: 23%;
+    color: white;
+    z-index: 500;
+    font-size: 20px;
+    /* text-decoration: none; */
+}
+.logItem{
+    color: white;
+    text-decoration: none;
+}
+.logItem:hover{
+    color: red;
+}

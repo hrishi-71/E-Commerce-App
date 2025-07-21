@@ -1,0 +1,9 @@
+.shopBtn{
+    border: 2px solid #020545;
+    background: #020545;
+    color: white;
+}
+.shopBtn:hover{
+    border: 2px solid #020545;
+    color: #020545;
+}

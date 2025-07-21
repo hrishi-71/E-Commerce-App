@@ -1,0 +1,19 @@
+.cart-icon {
+  position: fixed;
+  bottom: 6%;
+  right: 1%;
+  padding: 8px;
+  background-color: #0a0243;
+  color: #ffffff;
+  font-size: 35px;
+  text-align: center;
+  z-index: 99999;
+  width: 70px;
+  height: 70px;
+}
+.itemCount{
+  position:absolute;
+  top: 13%;
+  right: 15%;
+  font-size: 15px;
+}
