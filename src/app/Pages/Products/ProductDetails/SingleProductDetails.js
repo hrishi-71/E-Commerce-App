@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import "./ProductDetails.css";
