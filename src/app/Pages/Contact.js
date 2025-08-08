@@ -15,7 +15,7 @@ function Contact() {
               <h3 className="text-center">Contact With Us</h3>
             </Card.Header>
             <Card.Body>
-              <form name="contact" method="post">
+              <form name="contact" method="post" data-netlify="true">
                 {/* Hidden input for Netlify */}
                 <input type="hidden" name="form-name" value="contact" />
 
