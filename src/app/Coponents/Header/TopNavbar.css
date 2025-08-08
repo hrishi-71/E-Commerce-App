@@ -24,7 +24,7 @@
 }
 .logs{
     position: absolute;
-    top:23%;
+    top: 10px;
     right: 23%;
     color: white;
     z-index: 500;

@@ -3,6 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import CartSlice from "./Features/Cart/CartSlice";
 import CategorySlice from "./Features/Category/CategorySlice";
 import ProductSlice from "./Features/Product/ProductSlice";
+import LogSlice from "./Features/Logs/LogsSlice"
 let initialState = {};
 let store = configureStore(
   {
@@ -10,6 +11,7 @@ let store = configureStore(
       categories: CategorySlice,
       products: ProductSlice,
       carts: CartSlice,
+      logs : LogSlice,
     },
   },
   initialState,

@@ -1,43 +1,60 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { FaUserCircle,FaUserPlus,FaSignInAlt,FaSignOutAlt  } from 'react-icons/fa'
+import { FaUserCircle, FaUserPlus, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 // import {BiLogOut} from 'react-icons/bi'
 import { fetchAllCategories } from "../../Features/Category/CategorySlice";
 import './TopNavbar.css'
+import Login from "./Logs/Login";
+import Reg from "./Logs/Reg";
+import { logOut } from "../../Features/Logs/LogsSlice";
 
-function TopNavbar() {
+function TopNavbar({ user, form, change }) {
   const { categories } = useSelector((state) => state.categories);
+  const [name, setname] = useState('User')
   const dispatch = useDispatch();
-
+  
+  useEffect(() => {
+    if (user === 'User') {
+      setname('User')
+    } else {
+      setname(`${user.Fname} ${user.Lname}`)
+    }
+  }, [user],[dispatch])
+  
   useEffect(() => {
     dispatch(fetchAllCategories());
   }, [dispatch]);
 
   return (
     <div className="bg-dark" id="navi">
-        <div className="brand mx-auto">
+      <div className="brand mx-auto">
 
-          {/* Brand */}
-          <Link to="/" className="navbar-brand fs-3">
-            My Store
-          </Link>
-        </div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-2">
+        {/* Brand */}
+        <Link to="/" className="navbar-brand fs-3">
+          My Store
+        </Link>
+      </div>
+      <nav className="navbar navbar-expand-xl navbar-dark bg-dark px-2">
         <div className="container-fluid navMenu">
 
           {/* user */}
           <div className="user">
-            <FaUserCircle className="userIcon me-2" />User
-            {/* <Link to='#' className="logs">Login </Link>/
-            <Link to='#' className="logs"> Register</Link> */}
+            <FaUserCircle className="userIcon me-2" />{name}
           </div>
 
           {/* logs */}
           <div className="logs">
-              <Link className="logItem" title="Login"><FaSignInAlt/> </Link>/  
-              <Link className="logItem" title="Register"> <FaUserPlus/></Link>
-              {/* <Link className="logItem" title="Logout"><FaSignOutAlt/></Link> */}
+            {name === 'User' ? (
+              <>
+                <Link className="logItem" title="Login" onClick={() => change({ login: true, reg: false })}><FaSignInAlt /></Link> /
+                <Link className="logItem" title="Register" onClick={() => change({ login: false, reg: true })}><FaUserPlus /></Link>
+              </>
+            ) : (
+              <Link className="logItem" title="Logout" onClick={() => dispatch(logOut(user.Username))}>
+                <FaSignOutAlt /></Link>
+            )}
+
           </div>
 
           {/* Toggle Button */}
@@ -99,6 +116,8 @@ function TopNavbar() {
           </div>
         </div>
       </nav>
+      {form.login && <Login form={form} cancle={change} />}
+      {form.reg && <Reg form={form} cancle={change} />}
     </div>
   );
 }

@@ -1,0 +1,12 @@
+#checkout{
+    position: absolute;
+    top: 98px;
+    width: 100vw;
+    z-index: 9999px;
+}
+.addShadow{
+    box-shadow: 0px 0px 5px black;
+    border-radius: 2%;
+    padding: 1%;
+    background: #fff;
+}

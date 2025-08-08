@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -10,9 +10,27 @@ import {
   totalTax,
 } from "../Features/Cart/CartSelector";
 import { cartState } from "../Features/Cart/CartSlice";
+import Checkout from "../Coponents/Cart/Checkout";
 
-function Cart() {
+
+function Cart({form,change}) {
   let state = useSelector((state) => state);
+  const [checkout, updatecheck] = useState(false)
+
+  const Users = useSelector((state) => state.logs);
+  const [user, lguser] = useState(false)
+  useEffect(() => {
+      for (let usernameKey in Users) {
+        let username = Users[usernameKey];
+        if (username.logged) {
+          lguser(true)
+          break;
+        }else{
+          lguser(false)
+        }
+      }
+    }, [Users]);
+  
   let { carts } = useSelector(cartState);
   const subTotal = subTotalPrice(state);
   const tax = totalTax(state);
@@ -62,7 +80,7 @@ function Cart() {
                     </h5>
                   </div>
                   <div className="w-100 text-center">
-                    <Button variant="dark" className="align-middle d-inline">
+                    <Button variant="success" className="align-middle d-inline" onClick={()=>{user ? (!checkout && updatecheck(true)): change({ login: true, reg: false })}}>
                       Checkout
                     </Button>
                   </div>
@@ -73,6 +91,7 @@ function Cart() {
         )}
       </Container>
       <Footer />
+      {checkout && <Checkout checkout={checkout} updtcheck={updatecheck} />}
     </div>
   );
 }

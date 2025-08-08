@@ -1,0 +1,51 @@
+#Login{
+    background: #00000090;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+#Login .form{
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+}
+#Login form{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+form label{
+    color: white;
+}
+#cancel{
+    position: relative;
+    left: 80%;
+    background: #00000000;
+    border: none;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+#Login form fieldset button{
+    width: 50%;
+    margin: 40px 25%;
+}
+.same{
+    margin: 0px 25%;
+    color: white;
+    font-size: 27px;
+    text-shadow: 0px 0px 5px #0d6efd;
+}
+.same:hover{
+    color: #0d6efd;
+    text-shadow: 0px 0px 5px #0d6efd;
+
+}
+legend{
+    width: 100%;
+}
+legend img{
+    display: inline-block;
+    width: 50px;
+    margin: 20px 40%;
+}

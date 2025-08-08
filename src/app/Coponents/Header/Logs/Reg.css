@@ -1,0 +1,57 @@
+#Register{
+    background: #00000090;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+#Register .form{
+    width: 400px;
+    height: 400px;
+    margin: -10px auto;
+}
+#Register form{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+form label{
+    color: white;
+}
+#cancel{
+    position: relative;
+    left: 80%;
+    background: #00000000;
+    border: none;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+fieldset{
+    position: relative;
+}
+#Register form fieldset button{
+    width: 50%;
+    margin: 20px 25%;
+}
+legend{
+    width: 100%;
+}
+legend img{
+    display: inline-block;
+    width: 50px;
+    margin: 20px 40%;
+}
+.errMsg{
+    position: absolute;
+    color: red;
+    font-weight: 500;
+    right: 2%;
+    margin-top: -48px;
+}
+.okmsg{
+    position: absolute;
+    color: green;
+    font-weight: 900;
+    right: 2%;
+    margin-top: -48px;
+}
